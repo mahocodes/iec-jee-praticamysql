@@ -13,7 +13,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "produto")
+@Table(name = "categoria")
 public class Categoria {
 
 	@Id
