@@ -12,9 +12,9 @@ public interface CrudRepository<CLASS, ID> {
 
     CLASS findById(ID id);
 
-    void update(CLASS entity);
-
     void create(CLASS entity);
+
+    void update(CLASS entity);
 
     void delete(ID id);
 }

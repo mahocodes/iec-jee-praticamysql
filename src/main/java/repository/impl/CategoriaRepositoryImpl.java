@@ -1,6 +1,7 @@
 package repository.impl;
 
 import model.Categoria;
+import repository.CategoriaRepository;
 import repository.CrudRepository;
 
 import javax.ejb.Singleton;
@@ -8,7 +9,7 @@ import javax.persistence.EntityManager;
 import java.util.List;
 
 @Singleton
-public class CategoriaRepositoryImpl implements CrudRepository<Categoria, Long> {
+public class CategoriaRepositoryImpl implements CategoriaRepository {
 
     private EntityManager entityManager;
 
@@ -28,13 +29,13 @@ public class CategoriaRepositoryImpl implements CrudRepository<Categoria, Long> 
     }
 
     @Override
-    public void update(Categoria categoria) {
-        entityManager.merge(categoria);
+    public void create(Categoria categoria) {
+        entityManager.persist(categoria);
     }
 
     @Override
-    public void create(Categoria categoria) {
-        entityManager.persist(categoria);
+    public void update(Categoria categoria) {
+        entityManager.merge(categoria);
     }
 
     @Override

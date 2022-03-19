@@ -2,11 +2,12 @@ package repository.impl;
 
 import model.Produto;
 import repository.CrudRepository;
+import repository.ProdutoRepository;
 
 import javax.persistence.EntityManager;
 import java.util.List;
 
-public class ProdutoRepositoryImpl implements CrudRepository<Produto, Long> {
+public class ProdutoRepositoryImpl implements ProdutoRepository {
 
     private EntityManager entityManager;
 
@@ -26,13 +27,13 @@ public class ProdutoRepositoryImpl implements CrudRepository<Produto, Long> {
     }
 
     @Override
-    public void update(Produto produto) {
-        entityManager.merge(produto);
+    public void create(Produto produto) {
+        entityManager.persist(produto);
     }
 
     @Override
-    public void create(Produto produto) {
-        entityManager.persist(produto);
+    public void update(Produto produto) {
+        entityManager.merge(produto);
     }
 
     @Override
