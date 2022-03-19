@@ -27,6 +27,13 @@ public class ProdutoService {
         produtoRepository = sessionRepository.getProdutoRepository();
     }
 
+    public List<Produto> listByCategoria(Long categoria) {
+        return produtoRepository.listByCategoria(categoria);
+    }
+
+    public List<Produto> listByNomeAndCategoria(String nome, Long categoria) {
+        return produtoRepository.listByNomeAndCategoria(nome, categoria);
+    }
 
     public List<Produto> listAll() {
         return produtoRepository.listAll();

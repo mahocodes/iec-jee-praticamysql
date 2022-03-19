@@ -1,13 +1,16 @@
 package repository.impl;
 
 import model.Produto;
-import repository.CrudRepository;
 import repository.ProdutoRepository;
 
 import javax.persistence.EntityManager;
 import java.util.List;
 
 public class ProdutoRepositoryImpl implements ProdutoRepository {
+
+    private static final String QUERY = "SELECT produto " +
+            "FROM Produto produto " +
+            "INNER JOIN Categoria categoria ON produto.categoria = :categoria AND categoria.codigo = :categoria ";
 
     private EntityManager entityManager;
 
@@ -16,9 +19,22 @@ public class ProdutoRepositoryImpl implements ProdutoRepository {
         return this;
     }
 
+    public List<Produto> listByCategoria(Long categoria) {
+        return entityManager.createQuery(QUERY, Produto.class)
+                .setParameter("categoria", categoria)
+                .getResultList();
+    }
+
+    public List<Produto> listByNomeAndCategoria(String nome, Long categoria) {
+        return entityManager.createQuery(QUERY + "WHERE produto.nome LIKE :nome ", Produto.class)
+                .setParameter("nome", nome.concat("%"))
+                .setParameter("categoria", categoria)
+                .getResultList();
+    }
+
     @Override
     public List<Produto> listAll() {
-        return entityManager.createQuery("SELECT produto from Produto produto", Produto.class).getResultList();
+        return entityManager.createQuery("SELECT produto FROM Produto produto", Produto.class).getResultList();
     }
 
     @Override
