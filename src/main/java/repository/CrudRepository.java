@@ -1,7 +1,5 @@
 package repository;
 
-import model.Categoria;
-
 import javax.ejb.Singleton;
 import java.util.List;
 

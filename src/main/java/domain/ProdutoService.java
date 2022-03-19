@@ -1,7 +1,5 @@
 package domain;
 
-import lombok.RequiredArgsConstructor;
-import model.Categoria;
 import model.Produto;
 import repository.ProdutoRepository;
 import repository.SessionRepository;

@@ -2,7 +2,6 @@ package repository.impl;
 
 import model.Categoria;
 import repository.CategoriaRepository;
-import repository.CrudRepository;
 
 import javax.ejb.Singleton;
 import javax.persistence.EntityManager;

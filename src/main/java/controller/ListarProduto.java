@@ -2,8 +2,6 @@ package controller;
 
 import domain.ProdutoService;
 import model.Produto;
-import org.apache.commons.lang3.ObjectUtils;
-import org.apache.commons.lang3.StringUtils;
 
 import javax.ejb.EJB;
 import javax.servlet.RequestDispatcher;

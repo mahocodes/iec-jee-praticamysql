@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.CategoriaDAO;
 import domain.CategoriaService;
 
 @WebServlet(urlPatterns = "/delete")
